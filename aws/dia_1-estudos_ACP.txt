@@ -1,0 +1,193 @@
+= AWS Cloud Practitioner =
+    -> Cloud concepts
+        - on-demand
+        - rapid-access
+        - flexible
+        - pay-as-you-go
+        - don't need upfront investment
+
+        = Advantages
+            * don't need upfront investments
+            * scalability with low cost
+            * stop guessing capacity
+            * speed agility
+            * no maintaining data centers
+            * go global in minutes
+
+        = Types of Cloud Computing
+            * IaaS
+                - networking, computing, storage and database
+            * PaaS
+                - remove the need maintaining infrastructure, focus on deployment
+            * SaaS
+                - completed product, end-user application
+
+        = Models of Cloud Computing
+            * Public
+                - everything on Cloud, fully deployed
+            * Hybrid
+            * On-premises (Private)
+
+    -> Security and Compliance
+        = Cloud Security
+            - HIGHEST PRIORITY
+                - software-based tools
+
+        = Shared Responsibility Model
+            - commonly referred as:
+            SECURITY "OF" THE CLOUD X SECURITY "IN" THE CLOUD
+            (AWS)                 (COSTUMER)
+
+            """
+            The costumer assumes responsibility and management of the guest operating system
+            (including security patches and updates), other associated application software
+            as well as the configuration of the AWS provided security group firewall.
+            """
+
+        = AWS Cloud Compliance
+            - Programs
+            - Artifact
+
+        = Services
+            - Artifact
+            - Audit Manager
+            - Certificate Manager
+            - CloudHSM (Hardware Security Modules)
+            - Cognito
+            - Detective
+            - Directory Service
+            - Firewall Manager
+            - GuardDuty
+            - IAM
+            - IAM Identity Center (successor AWS Single Sign-On)
+            - Inspector
+                - automated search for vulnerabilities, restrict on EC2 instances
+                ** Trusted Advisor (On Management & Governance)
+                - recommend best practices
+            - Key Management Service
+            - Amazon Macie
+            - AWS Network Firewall
+            - Resource Access Manager
+            - Secrets Manager
+            - Security Hub
+            - AWS Signer
+            - WAF & Shield
+                - protect API, web apps, web exploit and acts on the 7th layer
+                - pricing: rules + requests.
+                - Shield: Standard (free/default) and Advanced(paid:DDoS)
+                CloudTrail (management & governance)
+            	- audit and monitoring (log monitoring)
+
+        = Overview
+        	- WAF -> stop hackers (7th layer)
+        	- Shield -> Stop DDoS attacks (standard/advanced)
+        	- Inspector -> EC2 vulnerabilities
+        	- Cloudwatch -> monitoring applications and infrastructure
+        	- Cloudtrail -> "logs" apis requests
+        	- Config -> Config management
+        	- Athena -> Queries (data stored in S3)
+        	- Macie -> uses ML to identify (PII)
+
+    = Global Infrastructure
+    	- AWS is built around Regions and Availability Zones.
+    	- Region (physical location) -> multiple Availability Zones
+    	- Availability Zones -> one or more discrete data centers
+    	- AWS operates in over 69 Availability Zones within over 22 regions around the world (2021)
+    	- now it's 87 'A.zones' and 27 regions (2022)
+    	- at least (minimum of 2 zones per region)
+    	- He also have Edge locations -> used for caching content (CDN-content delivery network)
+        * Edge Location > Availability Zones > Regions
+
+    	- Choosing the AWS Region
+    		* data storage laws
+    		* latency to end users
+    		* aws services
+
+    	- Access to Services
+    		* AWS Management Console
+    		* Command Line Interface (CLI)
+    		* Software Development kits (SDKs)
+
+    	- Methods of Deploying and Operating in the AWS Cloud
+    		* Elastic Beanstalk -> web applications (Compute)
+    			- just upload the code, and it automatically deploy with the correct provisioning
+                - the Beanstalk itself it's not paid, but the infra for deploying it's paid!
+            * Cloud Formation (Management & Governance)
+                - very similar to the Beanstalk, but not only for web applications
+                - you can create an infrastructure from a template
+            * OpsWorks (Management & Governance)
+                - managed instances of Chef and puppet
+                - configured, managed and deployed
+            * CodeCommit (Developer Tools)
+                - source control service (git)
+                - Git-based repositories
+            * CodeDeploy (Developer Tools)
+                - automate deploy
+                - EC2, Fargate, Lambda and on-premises
+            * CodePipeline (Developer Tools)
+                - continuous delivery
+                - full Development pipeline, automating build, test and deploy
+                - no upfront fee or long-term commitments, pays as you use
+            * ECS - Elastic Container Service (Compute)
+                - docker/container management and deploy
+                - automatic infrastructure for your deployment
+                - Fargate (manager)
+
+    = Global Services =
+        - Worldwide available
+            * IAM -> Identity and Access Management
+            * Route53 -> DNS
+            * CloudFront -> CDN
+            * SNS -> notification
+            * SES -> Email service
+
+            ***S3 -> Regional service with global vision
+
+    = Services "On-premises"
+        - Local
+            * Snowball -> Data Transfer (Service/Hardware)
+            * Storage Gateway -> Hybrid cloud storage with local caching
+            * CodeDeploy -> Automate code deployment to maintaining application
+            * OpsWorks -> chef and puppet
+            * IoT Greengrass -> extends cloud capabilities to local devices
+
+    = IAM service
+        - Creating a MFA on your account
+        - Creating the IAM users
+        - And then, setting the group permissions for them
+
+        - IAM Roles
+            -
+
+    = S3 features (Storage)
+        * object based
+        * file size 0 - 5 TB
+        * key (name of the object)
+        * Unlimited Storage
+        * Storage in buckets
+
+        - Storage Classes
+            * Standard                 ^                |
+            * Intelligent-Tiering      |                |
+            * Standard-IA              |                |
+            * One Zone-IA              |   ++ Price     |    -- Importance/Availability
+            * Glacler                  |                |
+            * Glacler Deep Archive     |                V
+
+    = EC2 - Elastic Computing Cloud
+        - Fast, scalable and easy to start using
+        - types of instances:
+            * On-demand
+                - pay-as-you-go model, where you don't need to provision your machine
+                just start to using, and you pay as much as capabilities you demand
+            * Reserved instances
+                - you can save up to 75% provisioning a machine for your needs
+                comparing to on-demand instances
+            * Spot instances (usually additional)
+                - 90% discount over an on-demand instance, e.g. gonna use an instance for a week
+                it's better spot instance than others, save money.
+            * Dedicated Host
+                - physical server
+                - fully-dedicated to your use
+
+    = ELB - Elastic Load Balance & Auto Scaling
