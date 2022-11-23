@@ -190,4 +190,11 @@
                 - physical server
                 - fully-dedicated to your use
 
-    = ELB - Elastic Load Balance & Auto Scaling
+    = ELB - Elastic Load Balance
+        - load managing
+        - EC2 instances, containers and IP addresses
+        - works on single or multiple Zones
+        -
+
+
+    = Auto Scaling
