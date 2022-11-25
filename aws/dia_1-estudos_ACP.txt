@@ -129,9 +129,15 @@
                 - full Development pipeline, automating build, test and deploy
                 - no upfront fee or long-term commitments, pays as you use
             * ECS - Elastic Container Service (Compute)
+                - Must have an EC2 instance to maintain the infrastructure
                 - docker/container management and deploy
                 - automatic infrastructure for your deployment
-                - Fargate (manager)
+            * Fargate (manager)
+                - Simpler
+                - Serverless
+                - automatic infrastructure
+            * ECR -
+                - Where you store your Docker images
 
     = Global Services =
         - Worldwide available
@@ -161,6 +167,9 @@
 
     = S3 features (Storage)
         * object based
+        * Replication
+        * Buckets policy
+        * Encryption
         * file size 0 - 5 TB
         * key (name of the object)
         * Unlimited Storage
@@ -190,11 +199,114 @@
                 - physical server
                 - fully-dedicated to your use
 
+    = Snow Family
+        - Data migration:
+            - Snowcone, Snowball Edge, Snowmobile
+                8 TB         80 TB      > 100 PB
+        - Edge Computing:
+            - Snowcone, Snowball Edge
+        - AWS OpsHub
+            - software: graphical interface to manage the snow devices
+        All: can run lambda or IoT sevice like Greengrass
+
+
+    = AWS Storage Gateway
+        - maintaining a bridge between your on-promises infrastructure and the CLOUD
+            for an S3 or EBS or Glacier
+
+    = RDS - Relational database
+        - Aurora:
+            5x MySQL and 3x faster than Postgres
+            cost more than 20% over the other, but more effective
+        - ElastiCache
+            - intense workloads
+        - DynamoDB
+            - across 3 AZ
+            - NoSQL
+            - severless
+            - low latency
+                - DAX
+                    - DynamoDB Accelerator
+                    - 10x faster
+                    - only for DynamoDB
+        - Global tables
+            - globally, low latency
+
+    = Redshift
+        - Data analytics
+        - Petabytes of data
+        - minutes to query not seconds
+        - MPP - Massively Parallel Query Execution, highly available
+        - 10x faster than other Data Warehouse
+        - AWS Quicksight or Tableau
+
+    = EMR - Elastic Map Reduce
+        - Hadoop clusters (Big Data)
+        - Auto-Scaling and integrated with Spot instances
+        - Data processing, machine learning, web indexing big data...
+
+    = Athena
+        - Serverless SQL to analyze data from s3.**
+
+    = AWS Quicksight
+        - BI in aws
+
+    = DocumentDB
+        - mongoDB
+        - NoSQL
+        - JSON data
+        - 3 AZ
+
+    = Neptune
+        - graph database
+        - 3 AZ up to 15 replicas
+
+    = QLDB - Quantum Ledger database
+        - recording financial transactions
+        - Serverless
+        - 3 AZ
+        - Immutable system
+        - 2-3x better than other ledger blockchain frameworks
+        - manipulate data using SQL
+
+    = Managed blockchain
+        - decentralyze
+        - Hyperledger FABRIC and Ethereum
+
+    = AWS Glue
+        - ETL service
+        - serverless
+        - Glue Transform
+
+    = DMS - Database Migration Service
+        - homogenius migrations And
+        - heterogenius migrations
+
+
     = ELB - Elastic Load Balance
         - load managing
         - EC2 instances, containers and IP addresses
         - works on single or multiple Zones
-        -
 
+    = Lambda
+        - functions
+        - short executions
+        - Run on-demand
+        - Scaling is automated
+        - pay-per-request
+            - pay for calls and duration
+        - Event-Driven, it's a react service*
+
+    = Batch
+        - no limit of time
+        - relies on EC2 instances or docker containers
+        - that's the difference over the lambda
+
+    = Lightsail
+        - for cloud noobs
+        - no auto-Scaling
+        - simple web applications
+        
 
     = Auto Scaling
+        - scalability
