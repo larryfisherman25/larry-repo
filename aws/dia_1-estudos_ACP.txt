@@ -143,7 +143,31 @@
         - Worldwide available
             * IAM -> Identity and Access Management
             * Route53 -> DNS
+                - manage DNS
+                    4 types of routing policies
+                        1- Simple routing : No helth check 1 instance
+                        2- Weighted routing: multiple instances with health Check
+                        3- Latency routing: get the nearest location to reduce latency
+                        4- Failover routing: disaster recovery
+
             * CloudFront -> CDN
+                - Content delivery network
+                    - Improves read performance, content is cached
+                    at the edge
+                    - DDoS protection (because Worldwide), integration with Shield,
+                    AWS Web application firewall
+                - Origins:
+                    - s3 bucket
+                        - enhanced security: Origin Access control(OAC)
+                    - Custom origin (HTTP)
+                - Great for static content that must be available everywhere
+
+            * Global Accelerator ->
+                Availability and performance
+                60% improvement on your route to your application
+                2 Anycast IP send through Edge Locations
+
+
             * SNS -> notification
             * SES -> Email service
 
@@ -174,6 +198,9 @@
         * key (name of the object)
         * Unlimited Storage
         * Storage in buckets
+        - Cross Region Replication:
+            - Great for dynamic content that needs to be available at low-Latency
+            at few regions
 
         - Storage Classes
             * Standard                 ^                |
@@ -306,7 +333,128 @@
         - for cloud noobs
         - no auto-Scaling
         - simple web applications
-        
+
+    = CDK - Cloud Development kit
+        - Define your language: python, js, .NET
+        - Great for lambda em Docker
+
+    = Elastic Beanstalk = PaaS - application focused
+        - Developer centric view
+        - just the application code its the responsibility of the developer
+        - has a health monitoring
+            - pushes metrics to Cloudwatch
+            - Checks for apps health
+
+    = CodeDeploy
+        - hybrid service
+        - can be used to on-premises migration
+
+    = CodeCommit
+        - repositorie like GitHub
+
+    = CodeBuild
+        - Compiles, runs code, run tests and produces packages that can be
+        easily deployed
+        - serverless
+        - pay for the build time - pay-as-you-go
+
+    = CodePipeline
+        - Orchestrate the steps CICD
+        - fast delivery & fast updates
+
+    = CodeArtifact
+        - dependencies of development
+        - store code dependencies
+
+    = CodeStar
+        - Unified UI
+        - in one place
+        - can edit code 'in the cloud' using AWS Cloud9
+
+    = Cloud9
+        - Cloud IDE
+        - on-browser
+        - pair-programing
+
+    = SSM - System Manager
+        - Hybrid service
+        - Manage Ec2 both cloud and on-premises
+        - Patching automation
+        - Run commands across an entire fleet of servers
+
+    = SSM session manager
+        - No SSH
+            - no port 22
+            - better SECURITY
+
+    = OpsWorks
+        - chef and puppet
+        - alternative for SSM
+
+    = AWS Outposts
+        - server racks (on-premises)
+
+    = AWS Wavelengths
+        - 5g networks
+        - Smart cities
+
+    = AWS Local zones
+        - run latency-sensitive applications
 
     = Auto Scaling
         - scalability
+
+    == Cloud Integrations ==
+
+        = Amazon SQS - Simple Queue Service
+            - decouple applications
+            - msgs are deleted after trey're read
+
+        = Kinesis
+            - Big data streaming
+            * Data Streams: low latency hundreds of thousands of sources
+            * Data Firehose: load into s3, Redshift, ElasticSearch, etc.
+            * Data Analytics: real-time analytics using SQL
+            * Video Streams: monitor video for analytics or ML
+
+        = SNS - Simple Notification Service
+            - one msg to many receivers
+
+        = Amazon MQ
+            - its for costumers that are in migration to the cloud
+            - rabbit mq its used on-premise
+
+    == Cloud Monitoring ==
+        = Cloudwatch metrics
+            - metrics for every service on aws
+            - can create CloudWatch dashboards of metrics
+        = CloudWatch alarms
+            - triggered by a metric
+            - takes an action
+        = Event bridge
+            - Cron jobs
+            - Schedule
+            - Even pattern
+            - Trigger lambda functions
+            - replay archived events
+
+        = Cloudtrail
+            - governance, Compliance and audit
+            - enable by default
+
+        = X-ray
+            - Debugging
+            - Visual analysis on your application
+
+        = CodeGuru
+            - ML-powered
+                - automated code reviews
+                - application performance recommendations
+
+        = Service Health Dashboard
+            - all regions, all Services
+            - historical
+        = Personal Health Dashboard
+            - alerts and remediation guidance
+            - when events may impact you
+            
