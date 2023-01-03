@@ -454,7 +454,34 @@
         = Service Health Dashboard
             - all regions, all Services
             - historical
+
         = Personal Health Dashboard
             - alerts and remediation guidance
             - when events may impact you
-            
+
+        = GuardDuty
+            - ML security
+
+        = Macie
+            - ML to findo sensitive data
+
+        = Trusted Advisor
+            - 5 categories:
+                - Security
+                - Performance
+                - Fail tolerance
+                - Cost optimization
+                - Service limits
+            - 7 core checks:
+                - s3 bucket permissions
+                - IAM use
+                - security groups
+                - RDS snapshot
+                - EBS snapshot
+                - Service limit
+                - MFA on root
+
+            - For business:
+                - Allow to API support
+                - full categories Checks
+                - ability to set cloudwatch alarms when reaching limits
