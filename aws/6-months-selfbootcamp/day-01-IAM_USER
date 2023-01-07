@@ -1,0 +1,13 @@
+- Day 01 - Cloud Selfbootcamp
+
+Phase 1: Linux Bash and Networking fundamentals
+
+Descriptions:
+- Logged in my aws account.
+- Activating a MFA to creating a IAM user.
+- Creating new IAM users.
+- Granting them permissions via group users.
+- Creating an Account Budget.
+    - Setup a learning budget in your cloud account ($20 a month is more than enough).
+    - Set up alerts at 50%, 75% consumption.
+- Set up larry cli access.

@@ -1,0 +1,14 @@
+= Solutions Architect Associate Studies =
+= Udemy course - Stephane Maarek =
+
+    = Section 3 - Getting Started =
+        = How to choose an AWS Region?
+            - Compliance
+            - Proximity (latency)
+            - available Services
+            - pricing
+
+        = Availability Zones =
+            - Every region has many Availability Zones (usually 3, min is 2, max is 6).
+            - AZ is one or more discrete data centers with redundant power, networking and connectivity
+            
