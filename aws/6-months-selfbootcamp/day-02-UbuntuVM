@@ -1,0 +1,62 @@
+- Day 02 - Cloud Selfbootcamp -
+
+🐧 1. Bash
+How you will interact with servers.
+In your Cloud account, deploy the cheapest Ubuntu VM possible.
+Turn it off after you’re done but also configure it to turn off at a the end of the day in case you forget.
+
+- Launching my first EC2 instance by myself
+- Ubuntu VM
+- Connecting to the EC2 instance via ssh
+    - Created a keypair '.pem' and saved in my computer
+    - I had trouble connecting. I was getting this message:
+
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+    - That's because my private key was with file permissions of 0777,
+      which allow anyone to read or write to this file.
+      This permission level is very insecure, and so SSH ignores this key.
+    - So I had to change this file permission locally with the command:
+
+                chmod 0400 .ssh/my_private_key.pem
+
+    - And finally I could connect to the ubuntu VM with:
+
+                ssh -v -i my_key.pem ec2-user@11.22.33.44
+
+- Now I started to configure the LAMP stack on the VM:
+    - Lists of the commands used:
+
+        sudo apt-get update                         # update all packages outdated
+        sudo apt install phpmyadmin                 # installing php
+        sudo apt install mysql-server               # installing mysql
+        sudo service mysql status                   # checking the status of mysql
+        sudo ss -tap | grep mysql                   # once again checking mysql process
+        ip address show                             # to grab ip address
+        nano /etc/mysql/mysql.conf.d/mysqld.cnf     # changing the 'bind-address' of mysql-server
+        sudo systemctl restart mysql.service        # restarting the mysql
+        sudo apt-get install php libapache2-mod-php php-mysql   # installing php-mysql, problably dont have to do that again, idk.
+        sudo systemctl restart apache2              # restarting the apache2
+
+        # Configuring the mysql server
+        mysql -u root -p
+        CREATE DATABASE myapp;
+        CREATE USER 'myappuser'@'localhost' IDENTIFIED BY 'password';
+        GRANT ALL PRIVILEGES ON myapp.* TO 'myappuser'@'localhost';
+        FLUSH PRIVILEGES;
+
+        cd /var/www/html                    # went to this directory to check the files
+        cat index.html                      # it has a template to test if everything its working
+
+        http://<public_dns_name>/test.php   # Entered in this address on the browser and WORKED!
+
+- Bash scripting
+    - Creating simple update script
+    - Create a sys-check script
+    - Learn about how you can give a command calling a script without the './' in front of it.
+        - You have to put into the $PATH variable
+        - '~/.profile' has a if statement to find put a directory called 'bin' if it is in the home
+        '~'
+    - Looking the 'up' script of the video 'https://www.youtube.com/watch?v=_n5ZegzieSQ'
